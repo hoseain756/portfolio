@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Hussein Saleh Al-Qahda — Front-End & Flutter Developer. Building pixel-perfect digital experiences that users love." />
+  <meta name="keywords" content="Hussein Al-Qahda, Front-End Developer, Flutter Developer, Portfolio, Web Developer" />
+  <meta name="author" content="Hussein Saleh Al-Qahda" />
+  <meta property="og:title" content="Hussein Al-Qahda | Front-End & Flutter Developer" />
+  <meta property="og:description"
+    content="Building pixel-perfect digital experiences that users love." />
+  <meta property="og:type" content="website" />
+  <title>Hussein Al-Qahda | Front-End & Flutter Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- ─── Loading Screen ─── -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <span class="loader-text">H.</span>
+    </div>
+  </div>
+
+  <!-- ─── Scroll Progress Bar ─── -->
+  <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
+
+  <!-- ─── Ambient Background ─── -->
+  <div class="bg-orb orb-1" aria-hidden="true"></div>
+  <div class="bg-orb orb-2" aria-hidden="true"></div>
+  <div class="bg-orb orb-3" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ─── Navigation ─── -->
+  <header class="header" id="header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#home" class="logo" aria-label="Hussein Al-Qahda home">
+        Hussein<span class="logo-dot">.</span>
+      </a>
+
+      <ul class="nav-list" id="nav-list" role="list">
+        <li><a href="#home"     class="nav-link" data-section="home">Home</a></li>
+        <li><a href="#about"    class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills"   class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#contact"  class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"
+        aria-controls="nav-list">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ═══════════════════════════════════════
+         SECTION 1 — HERO
+    ═══════════════════════════════════════ -->
+    <section id="home" class="hero section-full">
+      <div class="container hero-container">
+        <div class="hero-content reveal-up">
+          <p class="hero-greeting">
+            <span class="greeting-line"></span>
+            <span>Hello, World — I'm</span>
+          </p>
+          <h1 class="hero-name">
+            Hussein<br />
+            <span class="name-accent">Al-Qahda</span>
+          </h1>
+          <p class="hero-role">
+            <span class="role-static">I craft&nbsp;</span>
+            <span class="role-typed" id="typed-text" aria-live="polite"></span>
+            <span class="cursor-blink" aria-hidden="true">|</span>
+          </p>
+          <p class="hero-tagline">
+            Turning ideas into interfaces that <em>breathe</em> — one pixel at a time.
+          </p>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">
+              <i class="ri-eye-line" aria-hidden="true"></i>
+              View My Work
+            </a>
+            <a href="#contact" class="btn btn-ghost">
+              <i class="ri-send-plane-line" aria-hidden="true"></i>
+              Let's Talk
+            </a>
+          </div>
+
+          <!-- Floating stats -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number" data-count="4">0</span>
+              <span class="stat-label">Projects Shipped</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="2">0</span>
+              <span class="stat-label">Tech Stacks</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-item">
+              <span class="stat-number">∞</span>
+              <span class="stat-label">Curiosity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero decoration -->
+        <div class="hero-visual reveal-right" aria-hidden="true">
+          <div class="hero-avatar-ring">
+            <div class="hero-avatar-inner">
+              <div class="avatar-glyph">H</div>
+            </div>
+          </div>
+          <div class="floating-badge badge-top">
+            <i class="ri-code-s-slash-line"></i> Front-End Dev
+          </div>
+          <div class="floating-badge badge-bottom">
+            <i class="ri-flutter-fill"></i> Flutter Dev
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <a href="#about" class="scroll-hint" aria-label="Scroll to About section">
+        <i class="ri-arrow-down-line"></i>
+      </a>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 2 — ABOUT
+    ═══════════════════════════════════════ -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Who I Am</span>
+          <h2 class="section-title">About <span class="text-gradient">Me</span></h2>
+          <p class="section-subtitle">
+            A developer who doesn't just write code — I solve real problems with craft and intent.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal-left">
+            <p>
+              I'm <strong>Hussein Saleh Al-Qahda</strong>, a Front-End and Flutter Developer who
+              obsesses over the details that separate a good product from a great one. I build
+              interfaces that are not only functional, but genuinely enjoyable to use.
+            </p>
+            <p>
+              My work spans interactive education platforms, mobile Athkar apps, and restaurant
+              landing pages — each project a chance to push my craft further. I believe clean code
+              and premium design should never be mutually exclusive.
+            </p>
+            <p>
+              When I'm not building, I'm learning — exploring new tools, studying design patterns,
+              and staying at the edge of what's possible on the web and mobile.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <i class="ri-map-pin-line" aria-hidden="true"></i>
+                <span>Saudi Arabia</span>
+              </div>
+              <div class="highlight-item">
+                <i class="ri-mail-line" aria-hidden="true"></i>
+                <a href="mailto:hoseain756@gmail.com">hoseain756@gmail.com</a>
+              </div>
+              <div class="highlight-item">
+                <i class="ri-github-line" aria-hidden="true"></i>
+                <a href="https://github.com/hoseain756" target="_blank" rel="noopener noreferrer">hoseain756</a>
+              </div>
+            </div>
+
+            <a href="#contact" class="btn btn-primary btn-sm">
+              <i class="ri-briefcase-line" aria-hidden="true"></i>
+              Hire Me
+            </a>
+          </div>
+
+          <div class="about-cards reveal-right">
+            <div class="about-card glass-card">
+              <div class="about-card-icon accent-1">
+                <i class="ri-code-box-line" aria-hidden="true"></i>
+              </div>
+              <h3>Clean Code</h3>
+              <p>Semantic, readable, maintainable — code I'd be proud to open-source.</p>
+            </div>
+            <div class="about-card glass-card">
+              <div class="about-card-icon accent-2">
+                <i class="ri-layout-masonry-line" aria-hidden="true"></i>
+              </div>
+              <h3>Premium UI</h3>
+              <p>Pixel-precise designs that feel as good as they look.</p>
+            </div>
+            <div class="about-card glass-card">
+              <div class="about-card-icon accent-3">
+                <i class="ri-smartphone-line" aria-hidden="true"></i>
+              </div>
+              <h3>Mobile-First</h3>
+              <p>Experiences that work flawlessly on any screen, any device.</p>
+            </div>
+            <div class="about-card glass-card">
+              <div class="about-card-icon accent-4">
+                <i class="ri-rocket-2-line" aria-hidden="true"></i>
+              </div>
+              <h3>Fast Delivery</h3>
+              <p>Shipping production-ready work without cutting corners.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 3 — SKILLS
+    ═══════════════════════════════════════ -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">What I Use</span>
+          <h2 class="section-title">My <span class="text-gradient">Tech Stack</span></h2>
+          <p class="section-subtitle">Tools and technologies I wield to build world-class products.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Frontend -->
+          <div class="skill-group reveal-up" style="--delay: 0ms">
+            <div class="skill-group-header">
+              <div class="skill-group-icon">
+                <i class="ri-window-line" aria-hidden="true"></i>
+              </div>
+              <h3>Frontend</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-badge">
+                <i class="ri-html5-line" aria-hidden="true"></i> HTML5
+              </div>
+              <div class="skill-badge">
+                <i class="ri-css3-line" aria-hidden="true"></i> CSS3
+              </div>
+              <div class="skill-badge">
+                <i class="ri-javascript-line" aria-hidden="true"></i> JavaScript (ES6+)
+              </div>
+              <div class="skill-badge">
+                <i class="ri-layout-4-line" aria-hidden="true"></i> Responsive Design
+              </div>
+              <div class="skill-badge">
+                <i class="ri-palette-line" aria-hidden="true"></i> UI/UX Design
+              </div>
+              <div class="skill-badge">
+                <i class="ri-speed-line" aria-hidden="true"></i> Performance
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile -->
+          <div class="skill-group reveal-up" style="--delay: 100ms">
+            <div class="skill-group-header">
+              <div class="skill-group-icon">
+                <i class="ri-smartphone-line" aria-hidden="true"></i>
+              </div>
+              <h3>Mobile</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-badge">
+                <i class="ri-flutter-fill" aria-hidden="true"></i> Flutter
+              </div>
+              <div class="skill-badge">
+                <i class="ri-code-line" aria-hidden="true"></i> Dart
+              </div>
+              <div class="skill-badge">
+                <i class="ri-smartphone-line" aria-hidden="true"></i> Cross-Platform
+              </div>
+              <div class="skill-badge">
+                <i class="ri-stack-line" aria-hidden="true"></i> State Management
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div class="skill-group reveal-up" style="--delay: 200ms">
+            <div class="skill-group-header">
+              <div class="skill-group-icon">
+                <i class="ri-tools-line" aria-hidden="true"></i>
+              </div>
+              <h3>Tools & More</h3>
+            </div>
+            <div class="skill-list">
+              <div class="skill-badge">
+                <i class="ri-git-branch-line" aria-hidden="true"></i> Git & GitHub
+              </div>
+              <div class="skill-badge">
+                <i class="ri-global-line" aria-hidden="true"></i> Netlify
+              </div>
+              <div class="skill-badge">
+                <i class="ri-figma-line" aria-hidden="true"></i> Figma
+              </div>
+              <div class="skill-badge">
+                <i class="ri-terminal-box-line" aria-hidden="true"></i> VS Code
+              </div>
+              <div class="skill-badge">
+                <i class="ri-search-eye-line" aria-hidden="true"></i> SEO Basics
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 4 — PROJECTS
+    ═══════════════════════════════════════ -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">What I've Built</span>
+          <h2 class="section-title">Featured <span class="text-gradient">Projects</span></h2>
+          <p class="section-subtitle">
+            A curated selection of work that showcases my range and depth.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Project 1 — Chemistry Education Website -->
+          <article class="project-card reveal-up" style="--delay: 0ms">
+            <div class="project-card-inner glass-card">
+              <div class="project-thumbnail chem-gradient" aria-hidden="true">
+                <div class="project-thumb-icon"><i class="ri-flask-line"></i></div>
+                <div class="project-overlay">
+                  <a href="https://chemistry-2025.netlify.app/" target="_blank" rel="noopener noreferrer"
+                    class="overlay-btn" aria-label="Open Chemistry Education Website live demo">
+                    <i class="ri-external-link-line"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-tags">
+                  <span class="tag">HTML5</span>
+                  <span class="tag">CSS3</span>
+                  <span class="tag">JavaScript</span>
+                </div>
+                <h3 class="project-title">Chemistry Education Website</h3>
+                <p class="project-description">
+                  An immersive e-learning platform that transforms abstract chemistry concepts
+                  into animated, visual explorations. Built with accessibility in mind and
+                  optimized for students who need clarity, not complexity.
+                </p>
+                <div class="project-links">
+                  <a href="https://chemistry-2025.netlify.app/" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-primary btn-sm">
+                    <i class="ri-external-link-line" aria-hidden="true"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 — Virtual Physics Laboratory -->
+          <article class="project-card reveal-up" style="--delay: 100ms">
+            <div class="project-card-inner glass-card">
+              <div class="project-thumbnail phys-gradient" aria-hidden="true">
+                <div class="project-thumb-icon"><i class="ri-test-tube-line"></i></div>
+                <div class="project-overlay">
+                  <a href="https://virtual-physics-laboratory.netlify.app/" target="_blank"
+                    rel="noopener noreferrer" class="overlay-btn"
+                    aria-label="Open Virtual Physics Laboratory live demo">
+                    <i class="ri-external-link-line"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-tags">
+                  <span class="tag">HTML5</span>
+                  <span class="tag">CSS3</span>
+                  <span class="tag">JavaScript</span>
+                </div>
+                <h3 class="project-title">Virtual Physics Laboratory</h3>
+                <p class="project-description">
+                  A browser-based physics simulation lab where students can run virtual
+                  experiments — no equipment needed. Real-time interactive simulations powered
+                  entirely by vanilla JavaScript canvas rendering.
+                </p>
+                <div class="project-links">
+                  <a href="https://virtual-physics-laboratory.netlify.app/" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                    <i class="ri-external-link-line" aria-hidden="true"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 — Sushiman Restaurant -->
+          <article class="project-card reveal-up" style="--delay: 200ms">
+            <div class="project-card-inner glass-card">
+              <div class="project-thumbnail sushi-gradient" aria-hidden="true">
+                <div class="project-thumb-icon"><i class="ri-restaurant-line"></i></div>
+                <div class="project-overlay">
+                  <a href="https://sushiman-japanese-foods.netlify.app/" target="_blank" rel="noopener noreferrer"
+                    class="overlay-btn" aria-label="Open Sushiman Restaurant website">
+                    <i class="ri-external-link-line"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-tags">
+                  <span class="tag">HTML5</span>
+                  <span class="tag">CSS3</span>
+                  <span class="tag">JavaScript</span>
+                </div>
+                <h3 class="project-title">Sushiman Restaurant Website</h3>
+                <p class="project-description">
+                  An elegant Japanese restaurant landing page that balances zen minimalism with
+                  bold visual storytelling. Features scroll-driven animations, a curated
+                  menu showcase, and a design that makes you hungry on sight.
+                </p>
+                <div class="project-links">
+                  <a href="https://sushiman-japanese-foods.netlify.app/" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-primary btn-sm">
+                    <i class="ri-external-link-line" aria-hidden="true"></i> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4 — Al-Mufradun Athkar App -->
+          <article class="project-card reveal-up" style="--delay: 300ms">
+            <div class="project-card-inner glass-card">
+              <div class="project-thumbnail flutter-gradient" aria-hidden="true">
+                <div class="project-thumb-icon"><i class="ri-flutter-fill"></i></div>
+                <div class="project-overlay">
+                  <a href="https://github.com/hoseain756/adhkar_almuslim" target="_blank"
+                    rel="noopener noreferrer" class="overlay-btn"
+                    aria-label="Open Al-Mufradun GitHub repository">
+                    <i class="ri-github-line"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="project-body">
+                <div class="project-tags">
+                  <span class="tag">Flutter</span>
+                  <span class="tag">Dart</span>
+                  <span class="tag">Mobile</span>
+                </div>
+                <h3 class="project-title">Al-Mufradun — Athkar App</h3>
+                <p class="project-description">
+                  A beautifully crafted Flutter mobile app for daily Islamic remembrances
+                  (Athkar). Features categorized supplications, a clean UI with Arabic
+                  typography, and offline-first architecture for a seamless spiritual
+                  experience anywhere.
+                </p>
+                <div class="project-links">
+                  <a href="https://github.com/hoseain756/adhkar_almuslim" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                    <i class="ri-github-line" aria-hidden="true"></i> GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         SECTION 5 — CONTACT
+    ═══════════════════════════════════════ -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Let's Build Together</span>
+          <h2 class="section-title">Get In <span class="text-gradient">Touch</span></h2>
+          <p class="section-subtitle">
+            Have a project, an idea, or just want to say hi? My inbox is always open.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Contact info -->
+          <div class="contact-info reveal-left">
+            <div class="contact-card glass-card">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="ri-mail-send-line" aria-hidden="true"></i>
+                </div>
+                <div>
+                  <span class="contact-label">Email</span>
+                  <a href="mailto:hoseain756@gmail.com" class="contact-value">hoseain756@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="ri-phone-line" aria-hidden="true"></i>
+                </div>
+                <div>
+                  <span class="contact-label">Phone / WhatsApp</span>
+                  <a href="https://wa.me/966578165569" target="_blank" rel="noopener noreferrer"
+                    class="contact-value">+966 57 816 5569</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="ri-github-line" aria-hidden="true"></i>
+                </div>
+                <div>
+                  <span class="contact-label">GitHub</span>
+                  <a href="https://github.com/hoseain756" target="_blank" rel="noopener noreferrer"
+                    class="contact-value">github.com/hoseain756</a>
+                </div>
+              </div>
+
+              <div class="contact-socials">
+                <a href="https://github.com/hoseain756" target="_blank" rel="noopener noreferrer"
+                  class="social-icon" aria-label="GitHub">
+                  <i class="ri-github-fill" aria-hidden="true"></i>
+                </a>
+                <a href="https://wa.me/966578165569" target="_blank" rel="noopener noreferrer"
+                  class="social-icon" aria-label="WhatsApp">
+                  <i class="ri-whatsapp-fill" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:hoseain756@gmail.com" class="social-icon" aria-label="Email">
+                  <i class="ri-mail-fill" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <form class="contact-form glass-card reveal-right" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name" name="name" placeholder="John Doe" required
+                  autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email Address</label>
+                <input type="email" id="contact-email" name="email" placeholder="john@example.com" required
+                  autocomplete="email" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input type="text" id="contact-subject" name="subject" placeholder="Project inquiry…" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="5"
+                placeholder="Tell me about your project or idea…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="form-submit">
+              <i class="ri-send-plane-2-line" aria-hidden="true"></i>
+              Send Message
+            </button>
+            <p class="form-note" id="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── Footer ─── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#home" class="logo footer-logo">Hussein<span class="logo-dot">.</span></a>
+      <p class="footer-copy">
+        &copy; <span id="footer-year"></span> Hussein Saleh Al-Qahda. Crafted with
+        <i class="ri-heart-fill" style="color: var(--accent-1)" aria-label="love"></i> and lots of coffee.
+      </p>
+      <a href="#home" class="back-top" aria-label="Back to top">
+        <i class="ri-arrow-up-line" aria-hidden="true"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
